@@ -3,23 +3,53 @@
 
 <html>
     <head>
+      <meta charset="UTF-8">
       <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
       <script src="https://rawgit.com/chenzlabs/auto-detect-controllers/master/dist/aframe-auto-detect-controllers-component.min.js"></script>
-      <script src="https://rawgit.com/chenzlabs/gearvr-controls/master/dist/aframe-gearvr-controls-component.min.js"></script>
       <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
       <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
       <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
       <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+      <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script>
     </head>
     <body>
-      <a-scene>
+      <a-scene physics>
         <a-entity auto-detect-controllers></a-entity>
         <a-entity id="rain" particle-system="preset: dust; color: #ee22cc; particleCount: 5000"></a-entity>
         <a-entity id="sphere" geometry="primitive: sphere"
                   material="color: #ee00bb; shader: flat"
-                  position="0 0.15 -5"
+                  position="-7 0.15 -5"
                   light="type: point; intensity: 2; color: #ee00bb"
-                  animation="property: position; easing: easeInOutQuad; dir: alternate; dur: 1500; to: 0 -1 -5; loop: true"></a-entity>
+                  animation="property: position; easing: easeInOutQuad; dir: alternate; dur: 1500; to: -7 -1 -5; loop: true"></a-entity>
+        <a-entity id="sky-sphere" geometry="primitive: sphere"
+                  dynamic-body
+                  material="color: #00eebb; shader: flat"
+                  position="0 10 -5"
+                  light="type: point; intensity: 2; color: #00eebb"></a-entity>
+        <a-entity id="ground" static-body geometry="primitive: cylinder; width: 8; radius: 2" 
+                  material="color: #cecece; shader: flat"
+                  position="0 0 -5"></a-entity>
+        <a-entity id="box" geometry="primitive: box"
+                  material="shader: flat"
+                  position="0 -1 5"
+                  animation="property: position; easing: easeInOutQuad; dir: alternate; dur: 1500; to: 0 0.1 5; loop: true">
+                  <a-animation attribute="rotation" 
+                               dur="3500" 
+                               to="180 180 0" 
+                               repeat="indefinite" 
+                               easing="linear"></a-animation>
+                  <a-animation attribute="material.color" 
+                               from="#ccbb22" 
+                               to="#0066cc" 
+                               dur="2000" 
+                               repeat="indefinite" 
+                               direction="alternate" 
+                               easing="ease-in-out-bounce"></a-animation>
+        </a-entity>  
+        <a-entity id="cylinder" geometry="primitive: cylinder"
+                  material="shader: flat"
+                  position="5 -1 -2"
+                  animation="property: scale; easing: easeInOutQuad; dir: alternate; dur: 1500; to: 1.5 5 1.5; loop: true"></a-entity>
         <a-entity id="ocean" ocean="density: 14; width: 50; depth: 50; speed: 4"
                   material="color: #cecece; opacity: 0.75; metalness: 0; roughness: 1"
                   rotation="-90 0 0"></a-entity>
