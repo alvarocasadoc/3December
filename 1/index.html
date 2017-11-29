@@ -1,0 +1,80 @@
+<!-- Project 0: Pre-3December.
+    Basic pet project inspired in A-Frame guides. -->
+
+    <html>
+        <head>
+          <meta charset="UTF-8">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+          
+          <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+          <script src="https://rawgit.com/chenzlabs/auto-detect-controllers/master/dist/aframe-auto-detect-controllers-component.min.js"></script>
+          <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+          <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+          <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
+          <script src="https://rawgit.com/ngokevin/aframe-event-set-component/master/dist/aframe-event-set-component.min.js"></script>
+          
+          <link rel="stylesheet" href="../assets/css/style.css"/>
+        </head>
+        <body style="background: black">
+          <div id="modal-fail" class="modal">
+            <h1>You loose!</h1>
+            <h2>You have just deleted a correct note.</h2>
+            <input type="button" class="button" value="Play again" onclick="window.location.reload()">
+            <p class="attribution">Thanks to @marosoriop</p>
+          </div>
+          <div id="modal-win" class="modal">
+            <h1>You win!</h1>
+            <h2>You have deleted all the wrong notes.</h2>
+            <p class="attribution">Thanks to @marosoriop</p>
+          </div>
+          <a-scene embedded physics>
+            <a-entity>
+              <a-camera mouse-cursor>
+                <a-cursor fuse="true" color="yellow"></a-cursor>
+              </a-camera>
+            </a-entity>
+            <a-sphere id="melody" color="#f4a644" position="0 0 -5" sound="src: url(../assets/sound/chord.mp3); on: mouseenter; poolsize: 2">
+              <a-animation begin="mouseenter" easing="ease-in" attribute="scale" dur="400" from="1 1 1" to="1.2 1.2 1.2"></a-animation>
+              <a-animation begin="mouseenter" easing="ease-in" attribute="scale" dur="400" to="1 1 1" from="1.2 1.2 1.2"></a-animation>
+            </a-sphere>
+            <a-sphere id="note1" color="#f4a644" scale="0.1 0.1 0.1" position="0 0 -5" sound="src: url(../assets/sound/buena1.mp3); on: mouseenter; poolsize: 2">
+              <a-animation begin="mouseenter" easing="ease-in" attribute="scale" dur="200" from="0.8 0.8 0.8" to="1.2 1.2 1.2"></a-animation>
+              <a-animation begin="mouseenter" easing="ease-in" attribute="scale" dur="200" to="0.8 0.8 0.8" from="1.2 1.2 1.2"></a-animation>
+            </a-sphere>
+            <a-sphere id="note2" color="#f9914b" scale="0.1 0.1 0.1" position="0 0 -5" sound="src: url(../assets/sound/buena2.mp3); on: mouseenter; poolsize: 2">
+              <a-animation begin="mouseenter" easing="ease-in" attribute="scale" dur="200" from="0.8 0.8 0.8" to="1.2 1.2 1.2"></a-animation>
+              <a-animation begin="mouseenter" easing="ease-in" attribute="scale" dur="200" to="0.8 0.8 0.8" from="1.2 1.2 1.2"></a-animation>
+            </a-sphere>
+            <a-sphere id="note3" color="#f47b52" scale="0.1 0.1 0.1" position="0 0 -5" sound="src: url(../assets/sound/buena3.mp3); on: mouseenter; poolsize: 2">
+              <a-animation begin="mouseenter" easing="ease-in" attribute="scale" dur="200" from="0.8 0.8 0.8" to="1.2 1.2 1.2"></a-animation>
+              <a-animation begin="mouseenter" easing="ease-in" attribute="scale" dur="200" to="0.8 0.8 0.8" from="1.2 1.2 1.2"></a-animation>
+            </a-sphere>
+            <a-sphere id="note4" color="#f25e5e" scale="0.1 0.1 0.1" position="0 0 -5" sound="src: url(../assets/sound/mala1.mp3); on: mouseenter; poolsize: 2">
+              <a-animation begin="mouseenter" easing="ease-in" attribute="scale" dur="200" from="0.8 0.8 0.8" to="1.2 1.2 1.2"></a-animation>
+              <a-animation begin="mouseenter" easing="ease-in" attribute="scale" dur="200" to="0.8 0.8 0.8" from="1.2 1.2 1.2"></a-animation>
+            </a-sphere>
+            <a-sphere id="note5" color="#f64863" scale="0.1 0.1 0.1" position="0 0 -5" sound="src: url(../assets/sound/mala2.mp3); on: mouseenter; poolsize: 2">
+              <a-animation begin="mouseenter" easing="ease-in" attribute="scale" dur="200" from="0.8 0.8 0.8" to="1.2 1.2 1.2"></a-animation>
+              <a-animation begin="mouseenter" easing="ease-in" attribute="scale" dur="200" to="0.8 0.8 0.8" from="1.2 1.2 1.2"></a-animation>
+            </a-sphere>
+            <a-assets>
+              <a-animation id="moveTo1" easing="ease-in" attribute="position" dur="500"></a-animation>
+              <a-animation id="moveTo2" easing="ease-in" attribute="position" dur="500"></a-animation>
+              <a-animation id="moveTo3" easing="ease-in" attribute="position" dur="500"></a-animation>
+              <a-animation id="moveTo4" easing="ease-in" attribute="position" dur="500"></a-animation>
+              <a-animation id="moveTo5" easing="ease-in" attribute="position" dur="500"></a-animation>
+              <a-animation id="scale1"  easing="ease-in" attribute="scale" to="0.8 0.8 0.8" dur="500"></a-animation>
+              <a-animation id="scale2"  easing="ease-in" attribute="scale" to="0.8 0.8 0.8" dur="500"></a-animation>
+              <a-animation id="scale3"  easing="ease-in" attribute="scale" to="0.8 0.8 0.8" dur="500"></a-animation>
+              <a-animation id="scale4"  easing="ease-in" attribute="scale" to="0.8 0.8 0.8" dur="500"></a-animation>
+              <a-animation id="scale5"  easing="ease-in" attribute="scale" to="0.8 0.8 0.8" dur="500"></a-animation>
+            </a-assets>
+            <a-entity id="sky" 
+              geometry="primitive: sphere; radius: 5000"
+              material="shader: gradient; topColor: 167 60 90; bottomColor: 1 8 79"
+              scale="-1 1 1"></a-entity>
+          </a-scene>
+          <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
+          <script src="./index.js"></script>
+        </body>
+      </html>
