@@ -4,6 +4,8 @@
 <html>
     <head>
       <meta charset="UTF-8">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+      
       <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
       <script src="https://rawgit.com/chenzlabs/auto-detect-controllers/master/dist/aframe-auto-detect-controllers-component.min.js"></script>
       <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
@@ -11,9 +13,11 @@
       <script src="https://unpkg.com/aframe-extras.ocean@%5E3.5.x/dist/aframe-extras.ocean.min.js"></script>
       <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
       <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script>
+    
+      <link rel="stylesheet" href="../assets/css/style.css"/>
     </head>
     <body>
-      <a-scene physics>
+      <a-scene embedded physics>
         <a-entity auto-detect-controllers></a-entity>
         <a-entity id="rain" particle-system="preset: dust; color: #ee22cc; particleCount: 5000"></a-entity>
         <a-entity id="sphere" geometry="primitive: sphere"
@@ -58,5 +62,6 @@
                   scale="-1 1 1"></a-entity>
         <a-entity id="light" light="type: ambient; color: #555"></a-entity>
       </a-scene>
+      <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
     </body>
   </html>

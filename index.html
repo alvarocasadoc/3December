@@ -1,0 +1,74 @@
+<!-- 3December.
+     Basic pet projects based on A-Frame. -->
+
+    <html>
+        <head>
+          <meta charset="UTF-8">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+    
+          <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+          <script src="https://rawgit.com/chenzlabs/auto-detect-controllers/master/dist/aframe-auto-detect-controllers-component.min.js"></script>
+          <script src="https://unpkg.com/aframe-animation-component@3.2.1/dist/aframe-animation-component.min.js"></script>
+          <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+          <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+          <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script>
+          <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.js"></script>
+          <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
+          
+          <script src="./assets/js/materials/wireframe.js"></script>
+          <link rel="stylesheet" href="./assets/css/style.css" />
+        </head>
+        <body>
+          <div class="scene">
+            <a-scene embedded physics>
+                <a-entity auto-detect-controllers></a-entity>
+                <a-assets>
+                    <a-asset-item id="bungeeFont" src="./assets/fonts/Bungee_Regular.json"></a-asset-item>
+                    <a-asset-item id="pacificoFont" src="./assets/fonts/Pacifico_Regular.json"></a-asset-item>                
+                </a-assets>
+                <a-entity id="title"
+                        text-geometry="value: 3December; font: #bungeeFont;" 
+                        position="-4 1 -5" 
+                        scale="2 2 10"
+                        material="color: #ff7954" role="heading" aria-level="1"></a-entity>
+                <a-entity id="subtitle"
+                        text-geometry="value: Web VR pet projects; font: #pacificoFont;" 
+                        position="-2 0.5 -4.3" 
+                        scale="0.7 0.7 1"
+                        material="color: #a73c5a" role="heading" aria-level="2"></a-entity>
+                <a-entity id="sky" 
+                        geometry="primitive: sphere; radius: 5000"
+                        material="shader: gradient; topColor: 167 60 90; bottomColor: 1 8 79"
+                        scale="-1 1 1"></a-entity>
+                <a-entity id="light" light="type: ambient; color: #fff"></a-entity>
+                <a-entity id="light" light="type: directional; color: #a73c5a" position="0 0 -10" intensity="10"></a-entity>
+                <a-entity id="light" light="type: directional; color: #ccc" position="0 0 10" intensity="10"></a-entity>
+                <a-grid  material="color: #01084f" position="0,-1,0"></a-grid>
+                <a-sphere wireframe 
+                        position="5 3 -3" 
+                        material="color: #ff7954"
+                        animation="property: rotation; easing: linear; dur: 6000; to: 0 180 0; loop: true"></a-sphere>
+                <a-icosahedron color="#7954ff" 
+                        radius="2" 
+                        position="-5 4 -4" 
+                        wireframe
+                        animation="property: rotation; easing: linear; dur: 6000; to: 0 0 180; loop: true"></a-icosahedron>
+                <a-torus color="teal" opacity="0.1"
+                        arc="0" radius="2" radius-tubular="0.3" 
+                        position="0 4 -8" wireframe 
+                        animation="property: rotation; easing: linear; dur: 12000; to: 360 360 0; loop: true"></a-torus>
+            </a-scene>
+          </div>
+          <div class="projects">
+            <h3>Projects</h3>
+            <ul>
+                <li>
+                    <a href="./0/index.html">
+                        <img src="./assets/img/0.png"/><br/>
+                        <p>Day 0</p>
+                    </a>
+                </li>
+            </ul>
+          </div>
+        </body>
+      </html>

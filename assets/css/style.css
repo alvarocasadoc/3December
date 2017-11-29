@@ -1,0 +1,57 @@
+@font-face {
+    font-family: Pacifico;
+    src: url(../fonts/Pacifico-Regular.ttf);
+}
+
+h3 {
+    background: -webkit-linear-gradient(#ff7954, #01084f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: Pacifico;
+    font-size: 4em;
+    line-height: 2;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+li a {
+    color: #a73c5a;
+    font-family: sans-serif;
+    font-size: 1.5em;
+    margin: 10px;
+    text-align: center;
+    text-decoration: none;
+}
+
+li img {
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    max-width: 20vw;
+}
+
+.back-button {
+    background: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    left: 0;
+    padding: 1em;
+    position: fixed;
+    text-decoration: none;
+    top: 0;
+    z-index: 999;
+}
+
+.scene {
+    height: 75%;
+}
+
+.projects {
+    margin: 0 auto;
+    padding-top: 4em;
+    width: 80%;
+}
