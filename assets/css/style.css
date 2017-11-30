@@ -95,6 +95,12 @@ li img {
     margin-bottom: 1em;
 }
 
+.modal p {
+    color: white;
+    font-family: Pacifico;
+    font-size: 1em;
+}
+
 .modal h2 {
     color: white;
     font-family: Pacifico;
