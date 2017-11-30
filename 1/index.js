@@ -2,20 +2,17 @@ var balls = document.querySelectorAll("a-sphere");
 var melody = balls[0];
 var camera = document.querySelector("a-camera");
 
-var notes = [new Howl({ src: ['../assets/buena1.mp3'], preload: true}),
-             new Howl({ src: ['../assets/buena2.mp3'], preload: true}),
-             new Howl({ src: ['../assets/buena3.mp3'], preload: true}),
-             new Howl({ src: ['../assets/mala1.mp3'], preload: true}),
-             new Howl({ src: ['../assets/mala2.mp3'], preload: true})];
-notes[0].play();
+var chord = new Howl({src: ['../assets/sound/chord.mp3']});
 
-try {
-    // Fix up for prefixing
-    window.AudioContext = window.AudioContext||window.webkitAudioContext;
-    context = new AudioContext();
-} catch(e) {
-    console.log('Web Audio API is not supported in this browser');
-}
+var notes = [new Howl({ src: ['../assets/sound/buena1.mp3'], preload: true}),
+             new Howl({ src: ['../assets/sound/buena2.mp3'], preload: true}),
+             new Howl({ src: ['../assets/sound/buena3.mp3'], preload: true}),
+             new Howl({ src: ['../assets/sound/mala1.mp3'], preload: true}),
+             new Howl({ src: ['../assets/sound/mala2.mp3'], preload: true})];
+
+melody.addEventListener("mouseenter", function () {
+    chord.play();
+});
 
 melody.addEventListener("mousedown", function () {
     melody.parentNode.removeChild(melody);
