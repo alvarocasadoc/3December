@@ -15,11 +15,9 @@ melody.addEventListener("mousedown", function () {
         balls[j].addEventListener("mousedown", function () {
             balls[j].parentNode.removeChild(balls[j]);
             if (j <= 2) {
-                document.getElementById("modal-fail").style.display = "block";
-                document.querySelector('a-scene').exitVR();
+                window.location = "./fail.html";
             } else if (document.querySelectorAll("a-sphere").length == 3) {
-                document.getElementById("modal-win").style.display = "block";
-                document.querySelector('a-scene').exitVR();
+                window.location = "./win.html"
             }
         });
     };

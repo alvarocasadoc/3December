@@ -96,8 +96,8 @@ li img {
 }
 
 .modal p {
-    color: white;
-    font-family: Pacifico;
+    color: white !important;
+    font-family: sans-serif !important;
     font-size: 1em;
 }
 
@@ -107,14 +107,6 @@ li img {
     font-size: 2em;
 }
 
-#modal-fail {
-    background: orange;
-}
-  
-#modal-win {
-    background: green;
-}
-
 #modal-info {
     background: #01084f;
     display: block;
@@ -122,8 +114,4 @@ li img {
 
 #modal-info .button {
     background-color: #0F1B86;
-}
-
-#modal-fail .button {
-    background-color: #E06500;
 }
