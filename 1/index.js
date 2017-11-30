@@ -2,6 +2,12 @@ var balls = document.querySelectorAll("a-sphere");
 var melody = balls[0];
 var camera = document.querySelector("a-camera");
 
+var notes = [new Howl({ src: ['../assets/buena1.mp3'], preload: true}),
+             new Howl({ src: ['../assets/buena2.mp3'], preload: true}),
+             new Howl({ src: ['../assets/buena3.mp3'], preload: true}),
+             new Howl({ src: ['../assets/mala1.mp3'], preload: true}),
+             new Howl({ src: ['../assets/mala2.mp3'], preload: true})];
+
 try {
     // Fix up for prefixing
     window.AudioContext = window.AudioContext||window.webkitAudioContext;
@@ -21,6 +27,9 @@ melody.addEventListener("mousedown", function () {
         console.log();
         balls[j].setAttribute("animation__position", "property: position; easing: easeInOutQuad; dur: 500; to: " + (Math.round(3*Math.cos((j+1)*2*Math.PI/5))) + " " + (Math.round(3*Math.sin((j+1)*2*Math.PI/5))) + " -5;");
         balls[j].setAttribute("animation__scale", "property: scale; easing: easeInOutQuad; to: 0.8 0.8 0.8; dur: 500;");
+        balls[j].addEventListener("mouseenter", function () {
+            notes[j].play();
+        });
         balls[j].addEventListener("mousedown", function () {
             balls[j].parentNode.removeChild(balls[j]);
             if (j <= 2) {
