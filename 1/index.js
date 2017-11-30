@@ -7,6 +7,7 @@ var notes = [new Howl({ src: ['../assets/buena1.mp3'], preload: true}),
              new Howl({ src: ['../assets/buena3.mp3'], preload: true}),
              new Howl({ src: ['../assets/mala1.mp3'], preload: true}),
              new Howl({ src: ['../assets/mala2.mp3'], preload: true})];
+notes[0].play();
 
 try {
     // Fix up for prefixing
