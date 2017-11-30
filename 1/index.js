@@ -9,9 +9,9 @@ melody.addEventListener("mousedown", function () {
         let j = i;
         let anim = document.querySelector("#moveTo"+(j+1));
         let scale = document.querySelector("#scale"+(j+1));
-        balls[j].appendChild(anim);
-        balls[j].appendChild(scale);
-        anim.setAttribute('to', 2*Math.cos((j+1)*2*Math.PI/5) + "  " + 2*Math.sin((j+1)*2*Math.PI/5) + " -5");
+        console.log();
+        balls[j].setAttribute("animation__position", "property: position; easing: easeInOutQuad; dur: 500; to: " + (Math.round(3*Math.cos((j+1)*2*Math.PI/5))) + " " + (Math.round(3*Math.sin((j+1)*2*Math.PI/5))) + " -5;");
+        balls[j].setAttribute("animation__scale", "property: scale; easing: easeInOutQuad; to: 0.8 0.8 0.8; dur: 500;");
         balls[j].addEventListener("mousedown", function () {
             balls[j].parentNode.removeChild(balls[j]);
             if (j <= 2) {
@@ -20,6 +20,10 @@ melody.addEventListener("mousedown", function () {
                 document.getElementById("modal-win").style.display = "block";
             }
         });
-    }
-  camera.setAttribute('mouse-cursor');
+    };
+    camera.setAttribute('mouse-cursor');
 });
+
+function closeModal() {
+    document.getElementById("modal-info").style.display = "none";
+  }  
