@@ -1,6 +1,15 @@
 var balls = document.querySelectorAll("a-sphere");
 var melody = balls[0];
 var camera = document.querySelector("a-camera");
+
+try {
+    // Fix up for prefixing
+    window.AudioContext = window.AudioContext||window.webkitAudioContext;
+    context = new AudioContext();
+} catch(e) {
+    console.log('Web Audio API is not supported in this browser');
+}
+
 melody.addEventListener("mousedown", function () {
     melody.parentNode.removeChild(melody);
     camera.removeAttribute('mouse-cursor');

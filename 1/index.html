@@ -23,27 +23,33 @@
                 <p class="attribution">Thanks to @marosoriop</p>
               </div>
           <a-scene embedded physics>
+            <a-assets>
+              <audio id="note1" src="url(../assets/sound/buena1.mp3)" preload="auto"></audio>
+              <audio id="note2" src="url(../assets/sound/buena2.mp3)" preload="auto"></audio>
+              <audio id="note3" src="url(../assets/sound/buena3.mp3)" preload="auto"></audio>
+              <audio id="note4" src="url(../assets/sound/mala1.mp3)" preload="auto"></audio>
+              <audio id="note5" src="url(../assets/sound/mala2.mp3)" preload="auto"></audio>
+              <audio id="chord" src="url(../assets/sound/chord.mp3)" preload="auto"></audio>
+              <a-mixin id="pop" animation__pop="startEvents: mouseenter; easing: easeInOutQuad; property: scale; from: 1 1 1; to: 1.2 1.2 1.2;  dir: alternate; dur: 400;"></a-mixin>
+              <a-mixin id="popb" animation__popb="startEvents: mouseenter; easing: easeInOutQuad; property: scale; from: 0.8 0.8 0.8; to: 1.2 1.2 1.2;  dir: alternate; dur: 400;"></a-mixin>
+            </a-assets>
             <a-entity>
               <a-camera mouse-cursor>
                 <a-cursor fuse="true" color="teal"></a-cursor>
               </a-camera>
             </a-entity>
-            <a-sphere id="melody" color="#f4a644" position="0 0 -5" sound="src: url(../assets/sound/chord.mp3); on: mouseenter; poolSize: 2"  mixin="pop">
+            <a-sphere id="melody" color="#f4a644" position="0 0 -5" sound="src: #chord; on: mouseenter; poolSize: 2"  mixin="pop">
             </a-sphere>
-            <a-sphere id="note1" color="#f4a644" scale="0.1 0.1 0.1" position="0 0 -5" sound="src: url(../assets/sound/buena1.mp3); on: mouseenter; poolSize: 2" mixin="popb">
+            <a-sphere id="note1" color="#f4a644" scale="0.1 0.1 0.1" position="0 0 -5" sound="src: #note1; on: mouseenter; poolSize: 2" mixin="popb">
             </a-sphere>
-            <a-sphere id="note2" color="#f9914b" scale="0.1 0.1 0.1" position="0 0 -5" sound="src: url(../assets/sound/buena2.mp3); on: mouseenter; poolSize: 2" mixin="popb">
+            <a-sphere id="note2" color="#f9914b" scale="0.1 0.1 0.1" position="0 0 -5" sound="src: #note2; on: mouseenter; poolSize: 2" mixin="popb">
             </a-sphere>
-            <a-sphere id="note3" color="#f47b52" scale="0.1 0.1 0.1" position="0 0 -5" sound="src: url(../assets/sound/buena3.mp3); on: mouseenter; poolSize: 2" mixin="popb">
+            <a-sphere id="note3" color="#f47b52" scale="0.1 0.1 0.1" position="0 0 -5" sound="src: #note3; on: mouseenter; poolSize: 2" mixin="popb">
             </a-sphere>
-            <a-sphere id="note4" color="#f25e5e" scale="0.1 0.1 0.1" position="0 0 -5" sound="src: url(../assets/sound/mala1.mp3); on: mouseenter; poolSize: 2" mixin="popb">
+            <a-sphere id="note4" color="#f25e5e" scale="0.1 0.1 0.1" position="0 0 -5" sound="src: #note4; on: mouseenter; poolSize: 2" mixin="popb">
             </a-sphere>
-            <a-sphere id="note5" color="#f64863" scale="0.1 0.1 0.1" position="0 0 -5" sound="src: url(../assets/sound/mala2.mp3); on: mouseenter; poolSize: 2" mixin="popb">
+            <a-sphere id="note5" color="#f64863" scale="0.1 0.1 0.1" position="0 0 -5" sound="src: #note5; on: mouseenter; poolSize: 2" mixin="popb">
             </a-sphere>
-            <a-assets>
-              <a-mixin id="pop" animation__pop="startEvents: mouseenter; easing: easeInOutQuad; property: scale; from: 1 1 1; to: 1.2 1.2 1.2;  dir: alternate; dur: 400;"></a-mixin>
-              <a-mixin id="popb" animation__popb="startEvents: mouseenter; easing: easeInOutQuad; property: scale; from: 0.8 0.8 0.8; to: 1.2 1.2 1.2;  dir: alternate; dur: 400;"></a-mixin>
-            </a-assets>
             <a-entity id="sky" 
               geometry="primitive: sphere; radius: 5000"
               material="shader: gradient; topColor: 167 60 90; bottomColor: 1 8 79"
