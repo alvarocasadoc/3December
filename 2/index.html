@@ -1,0 +1,26 @@
+<!-- Project 2: Simple AR.
+     Visualizing a custom primitive with AR.js. -->
+
+    <html>
+        <head>
+          <meta charset="UTF-8">        
+          <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+          <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+
+          <script src="../assets/js/geometries/plumbob.js"></script>
+        </head>
+        <body style="margin : 0px; overflow: hidden;">
+          <a-scene embedded arjs="debugUIEnabled: false; detectionMode: mono_and_matrix; matrixCodeType: 3x3;" vr-mode-ui="enabled: false" >
+            <a-entity id="plumbob" geometry="primitive: plumbob; height: 2;" position="0 1.5 -5" 
+                      material="opacity: 0.9; color: yellowgreen;">
+              <a-animation attribute="position" from="0 1.5 0" to="0 3.5 0" 
+                           direction="alternate" repeat="indefinite" easing="ease-in-out-quad"></a-animation>
+              <a-animation attribute="rotation" from="0 0 0" to="0 360 0" 
+                           duration="700" repeat="indefinite" easing="linear"></a-animation>
+            </a-entity>
+            <a-light color="white" intensity="1" type="ambient"></a-light>
+            <a-marker-camera preset="hiro"></a-marker-camera>
+          </a-scene>
+          <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
+        </body>
+      </html>
