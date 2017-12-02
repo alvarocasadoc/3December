@@ -1,16 +1,59 @@
-<!-- Project 3: Simple bones animation.
-     Using Three.js bones to animate a SkinnedMesh. -->
+<!-- Project 3: Physics simulation.
+     Shooting against a pile of cubes. Also added some textures and shadows. -->
 
      <html>
         <head>
-          <meta charset="UTF-8">        
+          <meta charset="UTF-8">    
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+          
           <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+          <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+          <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script>
 
-          <script src="./index.js"></script>
+          <script src="../assets/js/behaviours/throwable.js"></script>
+          <link rel="stylesheet" href="../assets/css/style.css"/>
         </head>
-        <body style="background: black">
-          <a-scene embedded>
-            <a-entity id="beep" skinned-mesh="partNum: 10; speed: 1000" position="0 0 -4"></a-entity>
+        <body>
+          <p class="instructions">Point at any cube to shoot an imaginary bullet towards it!</p>
+          <a-scene embedded physics="iterations: 20" cursor="rayOrigin: mouse">
+            <a-assets>
+                <img id="ground" src="../assets/img/grass01.png">
+            </a-assets>
+
+            <a-camera mouse-cursor rotation="25 0 0">
+                <a-cursor fuse="true" color="purple"></a-cursor>
+            </a-camera>
+
+            <a-entity light="type:directional; castShadow:true; intensity: 1; 
+                             shadowCameraLeft: -10; shadowCameraRight: 10; shadowCameraTop: 20" position="0 4 2" ></a-entity>
+
+            <a-box dynamic-body throwable color="red" position = "0 0.5 -10" shadow></a-box>
+            <a-box dynamic-body throwable color="red" position = "-1.1 0.5 -10" shadow></a-box>
+            <a-box dynamic-body throwable color="red" position = "1.1 0.5 -10" shadow></a-box>
+            <a-box dynamic-body throwable color="red" position = "-2.2 0.5 -10" shadow></a-box>
+            <a-box dynamic-body throwable color="red" position = "2.2 0.5 -10" shadow></a-box>
+
+            <a-box dynamic-body throwable color="orange" position = "-1.6 1.6 -10" shadow></a-box>
+            <a-box dynamic-body throwable color="orange" position = "-0.5 1.6 -10" shadow></a-box>
+            <a-box dynamic-body throwable color="orange" position = "0.6 1.6 -10" shadow></a-box>
+            <a-box dynamic-body throwable color="orange" position = "1.7 1.6 -10" shadow></a-box>
+
+            <a-box dynamic-body throwable color="yellow" position = "0 2.7 -10" shadow></a-box>
+            <a-box dynamic-body throwable color="yellow" position = "-1.1 2.7 -10" shadow></a-box>
+            <a-box dynamic-body throwable color="yellow" position = "1.1 2.7 -10" shadow></a-box>
+
+            <a-box dynamic-body throwable color="yellowgreen" position = "-0.625 3.8 -10" shadow></a-box>
+            <a-box dynamic-body throwable color="yellowgreen" position = "0.525 3.8 -10" shadow></a-box>
+
+            <a-box dynamic-body throwable color="teal" position = "0 4.9 -10" shadow></a-box>
+
+            <a-box static-body material="src: #ground; repeat: 20 20" scale="100 0.1 100" position="0 -0.5 0" shadow="receive: true;"></a-box>
+
+            <a-entity id="sky" 
+                        geometry="primitive: sphere; radius: 5000"
+                        material="shader: gradient; topColor: 100 150 250; bottomColor: 100 140 150"
+                        scale="-1 1 1"></a-entity>
+            <a-entity id="light" light="type: ambient; color: #fff; intensity: 0.2"></a-entity>
           </a-scene>
           <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
         </body>

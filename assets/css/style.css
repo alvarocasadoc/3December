@@ -5,6 +5,7 @@
 
 h3 {
     background: -webkit-linear-gradient(#ff7954, #01084f);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-family: Pacifico;
@@ -126,6 +127,18 @@ li img {
     color: white;
     font-family: Pacifico;
     font-size: 2em;
+}
+
+.instructions {
+    color: white;
+    font-family: Pacifico;
+    font-size: 1.5em;
+    pointer-events:none;
+    position: absolute;
+    text-align: center;
+    top: 3em;
+    width: 100%;
+    z-index: 90;
 }
 
 #modal-info {
