@@ -18,6 +18,13 @@ ul {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-bottom: 2em;
+}
+
+li {
+    display: inline-block;
+    max-width: 25vw;
+    text-align: center;
 }
 
 li a {
@@ -32,7 +39,7 @@ li a {
 li img {
     border-radius: 10px;
     -webkit-border-radius: 10px;
-    max-width: 20vw;
+    width: 20vw;
 }
 
 .attribution {
@@ -64,6 +71,20 @@ li img {
     margin: 0 auto;
     padding-top: 4em;
     width: 80%;
+}
+
+.title {
+    font-family: Pacifico;
+    color: #0F1B86;
+    margin-bottom: 15px;
+}
+
+.pdf-link {
+    color: #01084f;
+}
+
+.pdf-link:hover {
+    color: #ff7954;
 }
 
 .modal {
