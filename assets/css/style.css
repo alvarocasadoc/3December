@@ -17,15 +17,15 @@ h3 {
 
 ul {
     display: flex;
-    flex-wrap: wrap;
+    align-items: stretch;
+    flex-flow: row wrap;
     justify-content: space-between;
     margin-bottom: 2em;
 }
 
 li {
-    display: inline-block;
-    max-width: 25vw;
     text-align: center;
+    flex: 1;
 }
 
 li a {
@@ -40,7 +40,7 @@ li a {
 li img {
     border-radius: 10px;
     -webkit-border-radius: 10px;
-    width: 20vw;
+    width: 25vw;
 }
 
 .attribution {
