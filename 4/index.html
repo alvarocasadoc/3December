@@ -1,0 +1,35 @@
+<!-- Project 4: More physics simulations. -->
+
+     <html>
+        <head>
+          <meta charset="UTF-8">    
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+          
+          <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>          
+          <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script>
+          <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+
+          <script src="../assets/js/others/ball-shooter.js"></script>
+          <link rel="stylesheet" href="../assets/css/style.css"/>
+        </head>
+        <body>
+          <a-scene embedded ball-shooter physics="gravity: -12">
+            <a-entity id="user" position="5 -9 15">
+              <a-camera></a-camera>
+            </a-entity>
+            <a-entity id="light" light="type: directional; color: #ffffff" position="0 2 5" intensity="0.5"></a-entity>
+            <a-cylinder static-body radius="0.1" height="10" color="white" rotation="0 0 90" position="5 0 0"></a-cylinder>
+            <a-box static-body width="50" height="4" depth="1" color="white" position="5 3 0"></a-box>
+            <a-box static-body width="20" height="20" depth="1" color="white" position="-11 -5 0"></a-box>
+            <a-box static-body width="20" height="20" depth="1" color="white" position="21 -5 0"></a-box>
+            <a-box static-body width="50" height="1" depth="50" color="white" position="5 -17 -20"></a-box>
+            <a-entity id="sky" 
+                        geometry="primitive: sphere; radius: 5000"
+                        material="shader: gradient; topColor: 198 244 242; bottomColor: 198 180 242"
+                        scale="-1 1 1"></a-entity>
+            <a-entity id="light" light="type: ambient; color: #fff; intensity: 0.2"></a-entity>
+            <script src="./index.js"></script>
+          </a-scene>
+          <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
+        </body>
+      </html>
