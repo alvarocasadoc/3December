@@ -1,5 +1,14 @@
     var scene = document.querySelector('a-scene');
     var trees = [];
+    var playing = false;
+
+    var chord = new Howl({src: ['../assets/sound/ambient.mp3']});
+    scene.addEventListener("click", function () {
+        if (playing == false) {
+            chord.play();
+            playing = true;
+        }
+    });
 
     function debounce(fn,time){
         var timerId = null;
@@ -20,10 +29,7 @@
         if (!(pos.x == 0 && pos.y == 0 && pos.z == 0)) {
             var tree = document.createElement('a-entity');
             
-            var ran = Math.floor(Math.random() * 3) + 1;
-            console.log("PLANTING A PLANT!" +  ran);
-            console.log(trees);
-            
+            var ran = Math.floor(Math.random() * 3) + 1;            
             tree.setAttribute('class', 'ignore-ray');
             tree.setAttribute('collada-model', '#tree' + ran);
             tree.setAttribute('scale', '0.3 0.3 0.3');
