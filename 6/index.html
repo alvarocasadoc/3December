@@ -1,0 +1,40 @@
+<!-- Project 6: glTF demo. -->
+
+<html>
+        <head>
+          <meta charset="UTF-8">    
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+          
+          <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+          <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+          <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+          <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
+          <link rel="stylesheet" href="../assets/css/style.css"/>
+        </head>
+        <body>
+          <a-scene embedded>
+            <a-assets>
+              <a-asset-item id="bungeeFont" src="../assets/fonts/Bungee_Regular.json"></a-asset-item>
+              <a-asset-item id="drone" src="../assets/models/drone/busterDrone.gltf"></a-asset-item>
+            </a-assets>
+            <a-entity position="0 -2 -2">
+              <a-camera></a-camera>
+            </a-entity>
+            <a-entity id="title"
+                text-geometry="value: glTF; font: #bungeeFont;" 
+                position="-4 1 -10" 
+                scale="4 4 10"
+                material="color: #ff7954" role="heading" aria-level="1"></a-entity>
+            <a-entity id="light" light="type: ambient; color: #fff"></a-entity>
+            <a-entity id="light" light="type: directional; color: #a73c5a" position="0 0 -10" intensity="10"></a-entity>
+            <a-entity id="light" light="type: directional; color: #ccc" position="0 0 10" intensity="10"></a-entity>
+            <a-entity animation-mixer gltf-model="#drone" position="0 0 -5"></a-entity>
+            <a-entity id="sky" 
+                geometry="primitive: sphere; radius: 5000"
+                material="shader: gradient; topColor: 60 60 80; bottomColor: 10 10 30"
+                scale="-1 1 1"></a-entity>
+          </a-scene>
+          <p class="attribution" style="color: #ff7954; z-index:99">Buster Drone by LaVADraGoN</p>
+          <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
+        </body>
+      </html>
