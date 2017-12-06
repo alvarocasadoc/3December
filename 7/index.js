@@ -20,7 +20,7 @@
         if (!(pos.x == 0 && pos.y == 0 && pos.z == 0)) {
             var tree = document.createElement('a-entity');
             
-            var ran = Math.floor(Math.random() * 4) + 1;
+            var ran = Math.floor(Math.random() * 3) + 1;
             console.log("PLANTING A PLANT!" +  ran);
             console.log(trees);
             
