@@ -1,0 +1,52 @@
+<!-- Project 7: Botanical garden. -->
+
+<html>
+    <head>
+      <meta charset="UTF-8">    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+      
+      <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+      <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+      <script src="https://cdn.rawgit.com/jujunjun110/aframe-crawling-cursor/master/dist/aframe-crawling-cursor.min.js"></script>
+
+      <script src="../assets/js/geometries/plumbob.js"></script>
+      <script src="../assets/js/behaviours/fenced.js"></script>
+
+      <link rel="stylesheet" href="../assets/css/style.css"/>
+    </head>
+    <body>
+      <a-scene embedded>
+        <a-cursor></a-cursor>
+        <a-camera fenced id="user" raycaster crawling-cursor="target: #plumbob; offset: 1.6;"></a-camera>
+
+        <a-assets>
+            <a-asset-item id="rock1" src="../assets/models/rock1.dae"></a-asset-item>
+            <a-asset-item id="tree4" src="../assets/models/tree4.dae"></a-asset-item>
+            <a-asset-item id="tree1" src="../assets/models/tree1.dae"></a-asset-item>
+            <a-asset-item id="tree2" src="../assets/models/tree2.dae"></a-asset-item>
+            <a-asset-item id="tree3" src="../assets/models/tree3.dae"></a-asset-item>
+        </a-assets>
+        
+        <a-entity class="ignore-ray" light="type:directional; castShadow:true; intensity: 0.6; 
+        shadowCameraLeft: -100; shadowCameraRight: 100; shadowCameraTop: 20; shadowMapHeight: 512, shadowMapWidth: 512" position="0 20 0" ></a-entity>
+        
+        <a-entity id="plumbob">
+            <a-entity class="ignore-ray" geometry="primitive: plumbob; height: 2;" rotation="90 0 0"
+                    material="opacity: 0.9; color: yellowgreen;" shadow>
+            </a-entity>
+            <a-ring class="ignore-ray" color="yellowgreen" position="0 0 1.5" rotation="180 0 0" scale="0.2 0.2 0.2"></a-ring>
+        </a-entity>
+
+        <a-box width="100" height="0.5" depth="100" position="0 0 -2" shadow color="#fff"></a-box>
+
+        <a-entity id="light" light="type: ambient; color: #fff; intensity: 0.9"></a-entity>
+        <a-entity class="ignore-ray" id="sky" 
+            geometry="primitive: sphere; radius: 5000"
+            material="shader: gradient; topColor: 60 60 80; bottomColor: 10 10 30"
+            scale="-1 1 1"></a-entity>
+        <script src="./index.js"></script>
+      </a-scene>
+      
+      <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
+    </body>
+  </html>
