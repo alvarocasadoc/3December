@@ -1,14 +1,18 @@
 @font-face {
-    font-family: Pacifico;
-    src: url(../fonts/Pacifico-Regular.ttf);
+    font-family: Bungee;
+    src: url(../fonts/Bungee-Regular.ttf);
+}
+
+body {
+    background: #131212;
 }
 
 h3 {
-    background: -webkit-linear-gradient(#ff7954, #01084f);
+    background: -webkit-linear-gradient(#ecd27a, #ff7954);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-family: Pacifico;
+    font-family: Bungee;
     font-size: 4em;
     line-height: 2;
     margin-bottom: 1em;
@@ -30,7 +34,7 @@ li {
 }
 
 li a {
-    color: #a73c5a;
+    color: #ff7954;
     font-family: sans-serif;
     margin: 10px;
     max-width: 15vw;
@@ -38,11 +42,8 @@ li a {
 }
 
 li img {
-    border-radius: 10px;
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(140,140,140,1);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(140,140,140,1);
-    box-shadow: 0px 0px 5px 0px rgba(140,140,140,1);
-    -webkit-border-radius: 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
     width: 25vw;
 }
 
@@ -78,14 +79,14 @@ li img {
 }
 
 .title {
-    font-family: Pacifico;
+    font-family: Bungee;
     font-size: 1.8em;
-    color: #0F1B86;
+    color: #ecd27a;
     margin-bottom: 15px;
 }
 
 .pdf-link {
-    color: #01084f;
+    color: #ecd27a;
 }
 
 .pdf-link:hover {
