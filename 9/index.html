@@ -1,0 +1,38 @@
+<!-- Project 9: AR photo frames. -->
+
+<html>
+        <head>
+          <meta charset="UTF-8">    
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+          
+          <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+          <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+
+          <link rel="stylesheet" href="../assets/css/style.css"/>
+        </head>
+        <body style='margin : 0px; overflow: hidden;'>
+          <a-scene embedded arjs="debugUIEnabled: false;">
+            <a-assets>
+              <img id="Lenna" width="512" height="512" src="../assets/img/Lenna.png">
+            </a-assets>
+
+            <a-plane src="#Lenna" height="1.1" width="1.1" rotation="-90 0 0" position="0 0.1 0"></a-plane>
+            
+            <a-box id="frame0" class="frame" height="1.5" width="1.5" depth="0.01" rotation="-90 0 0" position="0 0 0" visible="true"></a-box>
+            <a-entity id="frame1" class="frame" visible="false">
+              <a-box height="1.5" width="1.5" depth="0.01" rotation="-90 0 0" position="0 0 0"></a-box>
+              <a-box color="black" height="1.3" width="1.3" depth="0.01" rotation="-90 0 0" position="0 0.03 0"></a-box>
+            </a-entity>
+            <a-entity id="frame2" class="frame" visible="false">
+              <a-box height="0.1" width="1.5" depth="0.01" rotation="-90 0 0" position="0 0 0.7"></a-box>
+              <a-box height="0.1" width="1.5" depth="0.01" rotation="-90 0 0" position="0 0 -0.7"></a-box>
+              <a-box height="1.5" width="0.1" depth="0.01" rotation="-90 0 0" position="-0.7 0 0"></a-box>
+              <a-box height="1.5" width="0.1" depth="0.01" rotation="-90 0 0" position="0.7 0 0"></a-box>
+            </a-entity>
+
+            <a-marker-camera preset='hiro'></a-marker-camera>
+            <script src="./index.js"></script>
+          </a-scene>
+          <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
+        </body>
+      </html>
