@@ -10,6 +10,7 @@
 
           <script src="../assets/js/behaviours/cloth.js"></script>
           <script src="../assets/js/geometries/plumbob.js"></script>
+          <script src="../assets/js/behaviours/fenced.js"></script>
           <link rel="stylesheet" href="../assets/css/style.css"/>
         </head>
         <body style='margin : 0px; overflow: hidden;'>
@@ -33,7 +34,7 @@
                             duration="700" repeat="indefinite" easing="linear"></a-animation>
             </a-entity>
 
-            <a-camera position="0 0 -6"></a-camera>
+            <a-camera fenced="xMax: 6; xMin: -6; zMax: -6; zMin: -22" position="0 0 -6"></a-camera>
 
             <a-entity cloth="map: #texture; width: 1; height: 8; velocity: 0.2; xPoints: 6; yPoints: 6" position="5 5 -22"></a-entity>
             <a-entity cloth="map: #texture; width: 1; height: 8; velocity: 0.2; xPoints: 6; yPoints: 6" position="-5 5 -22"></a-entity>  
