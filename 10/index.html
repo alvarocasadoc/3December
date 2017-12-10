@@ -1,0 +1,75 @@
+<!-- Project 10: Cloth simulation. -->
+
+<html>
+        <head>
+          <meta charset="UTF-8">    
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+          
+          <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+          <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script>
+
+          <script src="../assets/js/behaviours/cloth.js"></script>
+          <script src="../assets/js/geometries/plumbob.js"></script>
+          <link rel="stylesheet" href="../assets/css/style.css"/>
+        </head>
+        <body style='margin : 0px; overflow: hidden;'>
+          <a-scene embedded physics="iterations: 20;">
+            <a-assets>
+                <a-image id="texture" src="../assets/img/fabric.jpg"></a-image>
+                <a-image id="column" src="../assets/img/column.jpg"></a-image>
+                <a-image id="wall" src="../assets/img/wall.jpg"></a-image>
+                <a-image id="table" src="../assets/img/table.jpg"></a-image>
+            </a-assets>
+
+            <a-entity id="light" light="type: ambient; color: #fff5bc; intensity: 0.2"></a-entity>
+
+            <a-entity id="light" light="type: point; color: #fff; intensity: 0.4; distance: 25" position="0 0 -6"></a-entity>
+
+            <a-entity id="plumbob" geometry="primitive: plumbob; height: 2;" position="0 4 -18" 
+            material="opacity: 0.9; color: purple;" light="type: point; intensity: 0.8; distance: 10; decay: 1; color: red" >
+                <a-animation attribute="position" from="0 2.5 -18" to="0 5 -18" 
+                            direction="alternate" repeat="indefinite" easing="ease-in-out-quad"></a-animation>
+                <a-animation attribute="rotation" from="0 0 0" to="0 360 0" 
+                            duration="700" repeat="indefinite" easing="linear"></a-animation>
+            </a-entity>
+
+            <a-camera position="0 0 -6"></a-camera>
+
+            <a-entity cloth="map: #texture; width: 1; height: 8; velocity: 0.2; xPoints: 6; yPoints: 6" position="5 5 -22"></a-entity>
+            <a-entity cloth="map: #texture; width: 1; height: 8; velocity: 0.2; xPoints: 6; yPoints: 6" position="-5 5 -22"></a-entity>  
+            
+            <a-entity cloth="map: #texture; width: 1; height: 8; velocity: 0.4; xPoints: 6; yPoints: 6" position="5 5 -14"></a-entity>
+            <a-entity cloth="map: #texture; width: 1; height: 8; velocity: 0.4; xPoints: 6; yPoints: 6" position="-5 5 -14"></a-entity>  
+
+            <a-entity cloth="map: #texture; width: 1; height: 8; velocity: 0.6; xPoints: 6; yPoints: 6" position="5 5 -18"></a-entity>
+            <a-entity cloth="map: #texture; width: 1; height: 8; velocity: 0.6; xPoints: 6; yPoints: 6" position="-5 5 -18"></a-entity>  
+
+            <a-entity cloth="map: #texture; width: 4; height: 8; velocity: 0.3" position="0 5 -23"></a-entity> 
+            
+            <a-box material="src: #table;" width="6" height="2" depth="2" position="0 -1 -18"></a-box>
+            <a-box material="src: #table;" width="7" height="0.5" depth="3" position="0 0 -18"></a-box>
+
+            <a-box material="src: #wall; repeat: 2 4" width="15" height="1" depth="20" position="0 -2 -15"></a-box>
+            <a-box material="src: #wall; repeat: 2 4" width="15" height="12" depth="0.5" position="0 4 -5"></a-box>
+            <a-box material="src: #wall; repeat: 2 4" width="1" height="12" depth="20" position="7.5 4 -15"></a-box>
+            <a-box material="src: #wall; repeat: 2 4" width="1" height="12" depth="20" position="-7.5 4 -15"></a-box>
+            <a-box material="src: #wall; repeat: 2 4" width="15" height="1" depth="20" position="0 10 -15"></a-box>
+            <a-box material="src: #wall; repeat: 2 4" width="15" height="12" depth="1" position="0 4 -25"></a-box>
+
+            <a-cylinder material="src: #column;  repeat: 4 1" height="15" radius="0.5" position="7 4 -8"></a-cylinder>
+            <a-cylinder material="src: #column; repeat: 4 1" height="15" radius="0.5" position="-7 4 -8"></a-cylinder>
+
+            <a-cylinder material="src: #column; repeat: 4 1" height="15" radius="0.5" position="7 4 -12"></a-cylinder>
+            <a-cylinder material="src: #column; repeat: 4 1" height="15" radius="0.5" position="-7 4 -12"></a-cylinder>
+
+            <a-cylinder material="src: #column; repeat: 4 1" height="15" radius="0.5" position="7 4 -16"></a-cylinder>
+            <a-cylinder material="src: #column; repeat: 4 1" height="15" radius="0.5" position="-7 4 -16"></a-cylinder>
+
+            <a-cylinder material="src: #column; repeat: 4 1" height="15" radius="0.5" position="7 4 -20"></a-cylinder>
+            <a-cylinder material="src: #column; repeat: 4 1" height="15" radius="0.5" position="-7 4 -20"></a-cylinder>
+
+            
+          </a-scene>
+          <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
+        </body>
+      </html>
