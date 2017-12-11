@@ -3,6 +3,11 @@
     src: url(../fonts/Bungee-Regular.ttf);
 }
 
+@font-face {
+    font-family: Pacifico;
+    src: url(../fonts/Pacifico-Regular.ttf);
+}
+
 body {
     background: #131212;
 }

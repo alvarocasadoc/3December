@@ -1,0 +1,175 @@
+<!-- Project 10: Cloth simulation. -->
+
+<html>
+        <head>
+          <meta charset="UTF-8">    
+
+          <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+          <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.min.js"></script>
+          <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script>
+          
+
+          <link rel="stylesheet" href="../assets/css/style.css"/>
+        </head>
+        <body style='margin : 0px; overflow: hidden;'>
+          <div class="modal" id="modal-info" style="display: block">
+              <h1>How to visit the gallery</h1>
+              <p>PC: use arrow keys or W, A, S, D to move and your mouse to look around</p>
+              <p><small>Click the screen to start looking and press ESC to stop the experience</small></p>
+              <br/>
+              <p>Mobile: look around by rotating your phone and tap the screen to walk towards where you are looking</p>
+              
+              <input type="button" class="button" value="Play" onclick="closeModal()">
+          </div>
+          <a-scene embedded physics preloader>
+            <a-assets>
+                <a-image id="texture" src="../assets/img/fabric.jpg"></a-image>
+                
+                <a-image id="floor" src="../assets/img/floor.png"></a-image>
+
+                <a-image id="artistic1" src="../assets/img/artistic1.jpg"></a-image>
+                <a-image id="artistic2" src="../assets/img/artistic2.jpg"></a-image>
+                <a-image id="artistic3" src="../assets/img/artistic3.jpg"></a-image>
+                <a-image id="artistic4" src="../assets/img/artistic4.jpg"></a-image>
+                <a-image id="artistic5" src="../assets/img/artistic5.jpg"></a-image>
+                <a-image id="artistic6" src="../assets/img/artistic6.jpg"></a-image>
+
+                <a-image id="beach1" src="../assets/img/beach1.jpg"></a-image>
+                <a-image id="beach2" src="../assets/img/beach2.jpg"></a-image>
+                <a-image id="beach3" src="../assets/img/beach3.jpg"></a-image>
+                <a-image id="beach4" src="../assets/img/beach4.jpg"></a-image>
+                <a-image id="beach5" src="../assets/img/beach5.jpg"></a-image>
+                <a-image id="beach6" src="../assets/img/beach6.jpg"></a-image>
+
+                <a-image id="portrait1" src="../assets/img/portrait1.jpg"></a-image>
+                <a-image id="portrait2" src="../assets/img/portrait2.jpg"></a-image>
+                <a-image id="portrait3" src="../assets/img/portrait3.jpg"></a-image>
+                <a-image id="portrait4" src="../assets/img/portrait4.jpg"></a-image>
+                <a-image id="portrait5" src="../assets/img/portrait5.jpg"></a-image>
+                <a-image id="portrait6" src="../assets/img/portrait6.jpg"></a-image>
+                <a-image id="portrait7" src="../assets/img/portrait7.jpg"></a-image>
+                <a-image id="portrait8" src="../assets/img/portrait8.jpg"></a-image>
+                <a-image id="portrait9" src="../assets/img/portrait9.jpg"></a-image>
+                <a-image id="portrait10" src="../assets/img/portrait10.jpg"></a-image>
+                <a-image id="portrait11" src="../assets/img/portrait11.jpg"></a-image>
+                <a-image id="portrait12" src="../assets/img/portrait12.jpg"></a-image>
+
+                <a-asset-item id="chair" src="../assets/models/chair.dae"></a-asset-item>
+            </a-assets>
+
+            <a-entity static-body collada-model="#chair" position="9 0.5 -15.5" rotation="0 -120 0"></a-entity>
+            <a-entity static-body collada-model="#chair" position="-9 0.5 -14.5" rotation="0 120 0"></a-entity>
+
+            <a-entity static-body collada-model="#chair" position="4.5 0.5 3" rotation="0 120 0"></a-entity>
+            <a-entity static-body collada-model="#chair" position="-4.5 0.5 3" rotation="0 -120 0"></a-entity>
+
+            <a-entity id="light" light="type: ambient; color: #fff5bc; intensity: 0.2"></a-entity>
+            <a-entity id="light" light="type: point; color: #fff; intensity: 0.15; ;" position="6 3 0"></a-entity>
+            <a-entity id="light" light="type: point; color: #fff; intensity: 0.15; ;" position="-6 3 0"></a-entity>
+
+            <a-entity id="light" light="type: point; color: #fff; intensity: 0.15; ;" position="6 3 -17"></a-entity>
+            <a-entity id="light" light="type: point; color: #fff; intensity: 0.15; ;" position="-6 3 -17"></a-entity>
+
+            <a-entity id="light" light="type: point; color: #fff; intensity: 0.15;" position="0 3 -5"></a-entity>
+            <a-entity id="light" light="type: point; color: #fff; intensity: 0.15;" position="0 3 5"></a-entity>
+
+            <a-entity position="6.5 3 -2.8" rotation="-25 0 0" light="intensity: 0.31; penumbra: 0.65; angle: 55; type: spot; distance: 3"></a-entity>
+            <a-entity position="4.5 3 -2.8" rotation="-25 0 0" light="intensity: 0.31; penumbra: 0.65; angle: 55; type: spot; distance: 3"></a-entity>
+            <a-entity position="8.5 3 -2.8" rotation="-25 0 0" light="intensity: 0.31; penumbra: 0.65; angle: 55; type: spot; distance: 3"></a-entity>
+
+            <a-entity position="-8.75 3 -2.8" rotation="-25 0 0" light="intensity: 0.31; penumbra: 0.65; angle: 55; type: spot; distance: 3"></a-entity>
+            <a-entity position="-7.25 3 -2.8" rotation="-25 0 0" light="intensity: 0.31; penumbra: 0.65; angle: 55; type: spot; distance: 3"></a-entity>
+            <a-entity position="-5.75 3 -2.8" rotation="-25 0 0" light="intensity: 0.31; penumbra: 0.65; angle: 55; type: spot; distance: 3"></a-entity>
+            <a-entity position="-4.25 3 -2.8" rotation="-25 0 0" light="intensity: 0.31; penumbra: 0.65; angle: 55; type: spot; distance: 3"></a-entity>
+            
+            <a-entity position="5.5 3 2.8" rotation="-25 180 0" light="intensity: 0.2; penumbra: 0.65; angle: 55; type: spot; distance: 3"></a-entity>
+            <a-entity position="7.5 3 2.8" rotation="-25 180 0" light="intensity: 0.2; penumbra: 0.65; angle: 55; type: spot; distance: 3"></a-entity>
+
+            <a-entity position="-5.5 3 -15.5" rotation="-25 180 0" light="intensity: 0.3; penumbra: 0.25; angle: 105; type: spot; distance: 5"></a-entity>
+            <a-entity position="5.5 3 -15.5" rotation="-25 180 0" light="intensity: 0.3; penumbra: 0.25; angle: 105; type: spot; distance: 5"></a-entity>
+
+            <a-entity id="user" camera="userHeight: 1.6"
+                kinematic-body>
+            </a-entity>
+
+            <!-- PHOTOS -->
+
+            <!-- Artistic -->
+            <a-plane material="src: #artistic1" width="5" height="2" depth="0.1" position="9.9 2 0" rotation="0 -90 0"></a-plane>
+
+            <a-plane material="src: #artistic2" width="1.15" height="2" depth="0.1" position="8.5 2 -3.9"></a-plane>
+            <a-plane material="src: #artistic4" width="1.15" height="2" depth="0.1" position="4.5 2 -3.9"></a-plane>
+            <a-plane material="src: #artistic3" width="1.15" height="2" depth="0.1" position="6.5 2 -3.9"></a-plane>
+
+            <a-plane material="src: #artistic5" width="1.15" height="2" depth="0.1" position="5.5 2 3.9" rotation="0 180 0"></a-plane>
+            <a-plane material="src: #artistic6" width="1.15" height="2" depth="0.1" position="7.5 2 3.9" rotation="0 180 0"></a-plane>
+
+            <!-- Beach -->
+            <a-plane material="src: #beach1" width="5" height="2" depth="0.1" position="-9.9 2 0" rotation="0 90 0"></a-plane>
+
+            <a-plane material="src: #beach2" width="1.15" height="2" depth="0.1" position="-8.75 2 -3.9"></a-plane>
+            <a-plane material="src: #beach3" width="1.15" height="2" depth="0.1" position="-7.25 2 -3.9"></a-plane>
+            <a-plane material="src: #beach4" width="1.15" height="2" depth="0.1" position="-5.75 2 -3.9"></a-plane>
+            <a-plane material="src: #beach5" width="1.15" height="2" depth="0.1" position="-4.25 2 -3.9"></a-plane>
+
+            <a-plane material="src: #beach6" width="5" height="2.25" depth="0.1" position="-6.5 2 3.9" rotation="0 180 0"></a-plane>
+
+            <!-- Portrait -->
+            <a-plane material="src: #portrait4" width="4" height="2" depth="0.1" position="-9.9 2 -17" rotation="0 90 0"></a-plane>
+
+            <a-plane material="src: #portrait5" width="1.15" height="2" depth="0.1" position="-4 2 -19.9"></a-plane>
+            <a-plane material="src: #portrait3" width="1.15" height="2" depth="0.1" position="-8 2 -19.9"></a-plane>
+            <a-plane material="src: #portrait1" width="1.15" height="2" depth="0.1" position="-6 2 -19.9"></a-plane>
+
+            <a-plane material="src: #portrait2" width="5" height="2.25" depth="0.1" position="-6 2 -14.1" rotation="0 180 0"></a-plane>
+
+            <a-plane material="src: #portrait6" width="4" height="2" depth="0.1" position="0 2 -19.9"></a-plane>
+
+            <a-plane material="src: #portrait7" width="1.15" height="2" depth="0.1" position="4 2 -19.9"></a-plane>
+            <a-plane material="src: #portrait8" width="1.15" height="2" depth="0.1" position="8 2 -19.9"></a-plane>
+            <a-plane material="src: #portrait9" width="1.15" height="2" depth="0.1" position="6 2 -19.9"></a-plane>
+
+            <a-plane material="src: #portrait10" width="1.15" height="2" depth="0.1" position="9.9 2 -18" rotation="0 -90 0"></a-plane>
+            <a-plane material="src: #portrait11" width="1.15" height="2" depth="0.1" position="9.9 2 -16" rotation="0 -90 0"></a-plane>
+
+            <a-plane material="src: #portrait12" width="5" height="2.25" depth="0.1" position="6 2 -14.1" rotation="0 180 0"></a-plane>
+
+            <!-- Ground -->
+            <a-box static-body width="20" height="1" depth="40" material="src: #floor; repeat: 15 25; roughness: 0.75;" ></a-box>
+
+            <!-- Ceiling -->
+            <a-box width="20" height="1" depth="40" position="0 4 0" material="roughness:0.8"></a-box>
+            
+            <!-- Walls -->
+            <a-box static-body class="wall" width="20"  height="4" depth="1" position="0 2  -20.5"  material="roughness:0.8"></a-box>
+
+            <a-box static-body class="wall" width="1"  height="4" depth="6" position="10.5 2 -17"  material="roughness:0.8"></a-box>
+            <a-box static-body class="wall" width="1"  height="4" depth="6" position="-10.5 2 -17"  material="roughness:0.8"></a-box>
+
+            <a-box static-body class="wall" width="8"  height="4" depth="1" position="6 2 -13.5"  material="roughness:0.8"></a-box>
+            <a-box static-body class="wall" width="8"  height="4" depth="1" position="-6 2 -13.5"  material="roughness:0.8"></a-box>
+
+            <a-box static-body class="wall" width="1"  height="4" depth="12" position="-2.5 2 -7"  material="roughness:0.8"></a-box>
+            <a-box static-body class="wall" width="1"  height="4" depth="12" position="2.5 2 -7"  material="roughness:0.8"></a-box>
+
+            <a-box static-body class="wall" width="20"  height="4" depth="1" position="0 2  -20.5"  material="roughness:0.8"></a-box>
+
+            <a-box static-body class="wall" width="20"  height="4" depth="1" position="0 2 13.5"  material="roughness:0.8"></a-box>
+
+            <a-box static-body class="wall" width="1"  height="4" depth="12" position="-2.5 2 7"  material="roughness:0.8"></a-box>
+            <a-box static-body class="wall" width="1"  height="4" depth="12" position="2.5 2 7"  material="roughness:0.8"></a-box>
+
+            <a-box static-body class="wall" width="1"  height="4" depth="10" position="-10.5 2 0"  material="roughness:0.8"></a-box>
+            <a-box static-body class="wall" width="1"  height="4" depth="10" position="10.5 2 0"  material="roughness:0.8"></a-box>
+
+            <a-box static-body class="wall" width="8"  height="4" depth="1" position="-6 2 -4.5"  material="roughness:0.8"></a-box>
+            <a-box static-body class="wall" width="8"  height="4" depth="1" position="-6 2 4.5"  material="roughness:0.8"></a-box>
+
+            <a-box static-body class="wall" width="8"  height="4" depth="1" position="6 2 -4.5"  material="roughness:0.8"></a-box>
+            <a-box static-body class="wall" width="8"  height="4" depth="1" position="6 2 4.5"  material="roughness:0.8"></a-box>
+          </a-scene>
+          <script src="./index.js"></script>
+          <p class="attribution" style="color: white; font-size: 0.75em; z-index:99">Photos by Laura Gómez Romero - lauragomezph.com</p>
+          <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
+        </body>
+      </html>
