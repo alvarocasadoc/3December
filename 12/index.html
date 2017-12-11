@@ -1,0 +1,33 @@
+<!-- Project 12: More cloth simulation. -->
+
+<html>
+    <head>
+      <meta charset="UTF-8">    
+
+      <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+      <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script>
+
+      <script src="../assets/js/behaviours/cloth.js"></script>
+      <link rel="stylesheet" href="../assets/css/style.css"/>
+    </head>
+    <body style='margin : 0px; overflow: hidden;'>
+      <a-scene embedded physics="iterations:20">
+        <a-camera position="0 0 1" wasd-controls-enabled="false"></a-camera>
+
+        <a-assets>
+            <a-image id="texture" src="../assets/img/fabric.jpg"></a-image>
+        </a-assets>
+
+        <a-entity cloth="map: #texture; width: 2; height: 2; velocity: 0.2; xPoints: 12; yPoints: 12; hanging: false" position="0 5 -4"></a-entity>
+        <a-sphere static-body="shape: sphere; sphereRadius: 1.05" position="0 0 -5"></a-sphere>        
+
+        <a-entity cloth="map: #texture; width: 2; height: 2; velocity: 0.5; xPoints: 12; yPoints: 12; hanging: false" position="2 5 -5"></a-entity>
+        <a-sphere static-body="shape: sphere; sphereRadius: 1.05" position="2 0 -7"></a-sphere>    
+
+        <a-entity cloth="map: #texture; width: 2; height: 2; velocity: 0.3; xPoints: 12; yPoints: 12; hanging: false" position="-2 5 -4"></a-entity>
+        <a-sphere static-body="shape: sphere; sphereRadius: 1.05" position="-2 0 -6"></a-sphere>    
+
+      </a-scene>
+      <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
+    </body>
+  </html>
