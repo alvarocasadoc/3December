@@ -1,0 +1,43 @@
+<!-- Project 13: Glitch effect. -->
+
+<html>
+        <head>
+          <meta charset="UTF-8">    
+    
+          <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+          <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+          <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+    
+          <script src="../assets/js/vendor/aframe-effects.min.js"></script>
+          <script src="./index.js"></script>
+          <link rel="stylesheet" href="../assets/css/style.css"/>
+        </head>
+        <body style='margin : 0px; overflow: hidden;'>
+          <a-scene embedded effects="glitch" glitch="true">
+            <a-assets>
+              <a-asset-item id="base-obj" src="../assets/models/space/starwars-tie-fighter.obj"></a-asset-item>
+              <a-asset-item id="base-mtl" src="../assets/models/space/starwars-tie-fighter.mtl"></a-asset-item>
+            </a-assets>
+
+            <a-entity>
+              <a-camera></a-camera>
+              <a-entity raycaster="objects: .collidable; showLine: true; far: 100" line="color: orange; opacity: 0.5" position="0 -0.9 0" rotation="90 0 0"></a-entity>
+            </a-entity>
+
+            <a-entity id="light" light="type: point; color: #fff; intensity: 1;" position="15 0 0"></a-entity>
+            <a-entity id="light" light="type: point; color: #990022; intensity: 0.2;" position="-15 0 5"></a-entity>
+
+            <a-entity class="collidable" obj-model="obj: #base-obj; mtl: #base-mtl" position="0 1.5 -10">
+              <!--a-animation attribute="rotation" to="0 360 0" dur="15000" easing="linear" repeat="indefinite"></a-animation-->
+            </a-entity>
+            
+            <a-entity particle-system="preset: dust; color: #fff; particleCount: 5000"></a-entity>
+            <a-entity id="sky" 
+              geometry="primitive: sphere; radius: 5000"
+              material="shader: gradient; topColor: 60 60 80; bottomColor: 10 10 30"
+              scale="-1 1 1"></a-entity>
+          </a-scene>
+          <p class="attribution" style="color: white">Effects component by @wizgrav</p>
+          <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
+        </body>
+      </html>
