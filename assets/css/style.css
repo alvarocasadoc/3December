@@ -52,6 +52,10 @@ li img {
     width: 25vw;
 }
 
+tr {
+    color:white;
+}
+
 .attribution {
     bottom: 0;
     color: white;
@@ -73,30 +77,21 @@ li img {
     z-index: 999;
 }
 
-.scene {
-    height: 75%;
-}
-
-.projects {
-    margin: 0 auto;
-    padding-top: 4em;
-    width: 80%;
-}
-
-.title {
+.field-name {
+    color: white;
     font-family: Bungee;
-    font-size: 1.8em;
-    color: #ecd27a;
-    margin-top: 15px;
-    margin-bottom: 15px;
 }
 
-.pdf-link {
-    color: #ecd27a;
-}
-
-.pdf-link:hover {
-    color: #ff7954;
+.instructions {
+    color: white;
+    font-family: Pacifico;
+    font-size: 1.5em;
+    pointer-events:none;
+    position: absolute;
+    text-align: center;
+    top: 3em;
+    width: 100%;
+    z-index: 90;
 }
 
 .modal {
@@ -140,16 +135,42 @@ li img {
     font-size: 2em;
 }
 
-.instructions {
+.model-info {
+    background: rgb(46, 46, 46);
     color: white;
-    font-family: Pacifico;
-    font-size: 1.5em;
-    pointer-events:none;
-    position: absolute;
-    text-align: center;
-    top: 3em;
-    width: 100%;
-    z-index: 90;
+    flex-grow: 1;
+    font-family: sans-serif;
+    padding-left: 2em;
+}
+
+.model-viewer {
+    flex-grow: 9;
+}
+
+.projects {
+    margin: 0 auto;
+    padding-top: 4em;
+    width: 80%;
+}
+
+.pdf-link {
+    color: #ecd27a;
+}
+
+.pdf-link:hover {
+    color: #ff7954;
+}
+
+.scene {
+    height: 75%;
+}
+
+.title {
+    font-family: Bungee;
+    font-size: 1.8em;
+    color: #ecd27a;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 #modal-info {

@@ -1,19 +1,26 @@
 AFRAME.registerComponent('measurable', {
+    schema: {
+        size: {type: 'number', default: 0.5}
+    },
     init: function() {
         var scene = this.el.sceneEl;
         var start, end, startP, endP;
         var mapV = new THREE.Vector3(0, 1, 0);
+        var data = this.data;
         this.el.addEventListener('click', debounce( function(e) {
-            var normal = e.detail.intersection.face.normal;
-            normal = AFRAME.utils.coordinates.toVector3(normal);
-            var angle =  mapV.angleTo(normal) * 180 / Math.PI;
-            var sprite = document.createElement('a-sprite');
-            sprite.setAttribute('src', '../assets/img/pointer.png');
-            sprite.setAttribute('resize', '0.5 0.5 0.5');
-            sprite.setAttribute('position', e.detail.intersection.point);
-            console.log('0 ' + angle + ' 0');
-            sprite.setAttribute('rotation', '0 ' + angle + ' 0');
+            var inter = e.detail.intersection;
+            var sprite = document.createElement('a-entity');
+            sprite.setAttribute('geometry', 'primitive: sphere; radius:' + data.size/2);
             scene.appendChild(sprite);
+            
+            var mat = inter.object.matrixWorld;
+            mat.setPosition(new THREE.Vector3(0, 0, 0));
+            var global_normal = e.detail.intersection.face.normal.clone().applyMatrix4(mat).normalize();
+            var lookAtTarget = new THREE.Vector3().addVectors(inter.point, global_normal);
+            sprite.object3D.lookAt(lookAtTarget);
+            var pointerPosition = new THREE.Vector3().addVectors(inter.point, global_normal.multiplyScalar(data.size/2));
+
+            sprite.setAttribute("position", pointerPosition);
                 if(start == null) {
                     start = sprite;
                     startP = e.detail.intersection.point;
@@ -23,7 +30,7 @@ AFRAME.registerComponent('measurable', {
                     endP = e.detail.intersection.point;
                     endP = AFRAME.utils.coordinates.toVector3(endP);
                     console.log(startP);
-                    alert(startP.distanceTo(endP));
+                    document.getElementById('measure').innerHTML = Math.round(startP.distanceTo(endP)*100)/100 + 'cm';
                 } else {
                     scene.removeChild(start);
                     scene.removeChild(end);

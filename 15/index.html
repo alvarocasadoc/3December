@@ -1,29 +1,89 @@
-<!-- Project 15: Component for a more complex shader. -->
+<!-- Project 15: Measuring distances. -->
 
 <html>
     <head>
       <meta charset="UTF-8">    
-      <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
-      <script src="https://cdn.rawgit.com/tizzle/aframe-sprite-component/master/dist/aframe-sprite-component.min.js"></script>
+      <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
 
       <script src="../assets/js/behaviours/measurable.js"></script>
+      <script src="../assets/js/geometries/plumbob.js"></script>
       <link rel="stylesheet" href="../assets/css/style.css"/>
     </head>
-    <body style='margin : 0px; overflow: hidden;'>
-      <a-scene embedded>
-            <a-icosahedron position="0 1 -5" measurable></a-icosahedron>
-            <a-camera cursor>
-              <a-entity cursor
-                        position="0 0 -1"
-                        geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
-                        material="color: black; shader: flat">
-                        <a-animation begin="click" easing="ease-in" attribute="scale" dur="150"
-                        fill="forwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
-           <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" dur="1500"
-                        fill="backwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
+    <body style='margin : 0px; overflow: hidden; display : flex; height: 100%;'>
+      <div class="model-viewer">
+        <a-scene embedded vr-mode-ui="enabled: false">
+            <a-assets>
+                <a-asset-item id="mac" src="../assets/models/mac.dae"></a-asset-item>
+              </a-assets>
+              <a-entity measurable="size: 1">
+                <a-entity id="macModel" scale="7.3 7.3 7.3" position="0 2.5 -35" collada-model="#mac"></a-entity>
               </a-entity>
-            </a-camera>
-      </a-scene>
+              <a-camera fov="50" wasd-controls="acceleration: 650">
+                <a-entity cursor
+                          position="0 0 -1"
+                          geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
+                          material="color: red; shader: flat">
+                          <a-animation begin="click" easing="ease-in" attribute="scale" dur="150"
+                          fill="forwards" from="0.1 0.1 0.1" to="1 1 1"></a-animation>
+                          <a-animation begin="cursor-fusing" easing="ease-in" attribute="scale" dur="1500"
+                          fill="backwards" from="1 1 1" to="0.1 0.1 0.1"></a-animation>
+                </a-entity>
+              </a-camera>
+            <script>
+            document.getElementById("macModel").addEventListener('model-loaded', function() {
+              this.setAttribute('measurable', '');
+            });
+            </script>
+        </a-scene>
+      </div>
+      <div class="model-info">
+        <h1>Macintosh Classic</h1>
+        <table>
+          <tr>
+            <td class="field-name">Introduction date:</td>
+            <td>October 15, 1990</td>
+          </tr>
+          <tr>
+            <td class="field-name">Discontinued date:</td>
+            <td>September 14, 1992</td>
+          </tr>
+          <tr>
+            <td class="field-name">Processor speed:</td>
+            <td>8MHz</td>
+          </tr>
+          <tr>
+            <td class="field-name">System bus speed:</td>
+            <td>8MHz</td>
+          </tr>
+          <tr>
+            <td class="field-name">ROM:</td>
+            <td>512k Macintosh ROM</td>
+          </tr>
+          <tr>
+            <td class="field-name">RAM:</td>
+            <td>upto 4MB 30-pin SIMM (120ns)</td>
+          </tr>
+          <tr>
+            <td class="field-name">Display:</td>
+            <td>9" monochrome (512x342)</td>
+          </tr>
+          <tr>
+            <td class="field-name">Weight:</td>
+            <td>7.3kg (16.0 lbs)</td>
+          </tr>
+          <tr>
+          <td class="field-name">Price:</td>
+          <td>$999 - $1499</td>
+          </tr>
+          <tr>
+          <td class="field-name">Dimensions:</td>
+          <td>33.5 cm × 24.6 cm × 28.4 cm</td>
+        </tr>
+        </table>
+        <p style="font-size: 1.2em; color: #ecd27a">Click any pair of points on the Mac to get it's measure:</p>
+        <p id="measure" style="font-family: Bungee; font-size: 2em; color: #ff7954;"></p>
+      </div>
+      <p class="attribution" style="color: white; font-size: 0.75em">Model by <a href="http://www.esi.uclm.es/museo/index_en.html">UCLM</a></p>
       <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
     </body>
   </html>
