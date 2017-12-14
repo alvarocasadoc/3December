@@ -1,0 +1,18 @@
+<!-- Project 14: Component for a more complex shader. -->
+
+<html>
+        <head>
+          <meta charset="UTF-8">    
+          <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+          
+          <script src="../assets/js/shaders/explosion.js"></script>
+          <link rel="stylesheet" href="../assets/css/style.css"/>
+        </head>
+        <body style='margin : 0px; overflow: hidden;'>
+          <a-scene embedded>
+                <a-sphere explosion position="0 1 -10" radius="3" segments-height="128" segments-width="128"></a-sphere>
+          </a-scene>
+          <p class="attribution" style="color:white; font-size: 0.75em">Custom A-Frame component for the explosion shader by <a href="https://www.clicktorelease.com/blog/vertex-displacement-noise-3d-webgl-glsl-three-js/" target="_blank">clicktorelease</a> based on Stefan Gustavson's Perlin noise implementation</p>
+          <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
+        </body>
+      </html>
