@@ -1,14 +1,31 @@
-<!-- Project 16: AR + face detection. -->
+<!-- Project 16: Multimarker AR measuring. -->
 
 <html>
     <head>
-      <meta charset="UTF-8">    
-      
-      <script src="../assets/js/vendor/tracking.min.js"></script>
+      <meta charset="UTF-8">
+      <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+      <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+
+      <script src="../assets/js/behaviours/arMeasure.js"></script>
       <link rel="stylesheet" href="../assets/css/style.css"/>
     </head>
     <body style='margin : 0px; overflow: hidden;'>
-      
+      <div class="loading">
+        ...
+      </div>
+      <a-scene ar-measure="centerMeasure: false" embedded arjs="debugUIEnabled: false; sourceType: webcam;" vr-mode-ui="enabled: false" >
+
+        <a-box animated-walk material='color: green;'></a-box>
+
+        <a-marker id="posA" preset='hiro'>
+        </a-marker>
+
+        <a-marker id="posB" preset='kanji'>
+        </a-marker>
+        
+        <a-entity camera></a-entity>
+       
+      </a-scene>
       <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
     </body>
   </html>   

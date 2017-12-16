@@ -33,6 +33,7 @@ ul {
 }
 
 li {
+    align-self: flex-end;
     flex: 1;
     margin-bottom: 2em;
     text-align: center;
@@ -92,6 +93,19 @@ tr {
     top: 3em;
     width: 100%;
     z-index: 90;
+}
+
+.loading {
+    background: rgba(255, 255, 255, 0.5);
+    bottom: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    color: #0F1B86;
+    font-family: Bungee;
+    padding: 2em;
+    position: fixed;
+    text-align: center;
+    z-index: 999;
 }
 
 .modal {
