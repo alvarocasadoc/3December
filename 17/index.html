@@ -1,0 +1,27 @@
+<!-- Project 17: Leap motion 101. -->
+
+<html>
+    <head>
+      <meta charset="UTF-8">
+      <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+      <script src="https://unpkg.com/aframe-leap-hands/dist/aframe-leap-hands.min.js"></script>
+      <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.js"></script>
+      <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script>      
+
+      <link rel="stylesheet" href="../assets/css/style.css"/>
+    </head>
+    <body style='margin : 0px; overflow: hidden;'>
+      <a-scene>
+        <a-entity camera="near: 0.01" look-controls position="0 1.5 0">
+            <a-entity leap-hand="hand: left; enablePhysics: true"></a-entity>
+            <a-entity leap-hand="hand: right; enablePhysics: true"></a-entity>
+        </a-entity>
+        <a-box id="anchor" static-body position="0 2 -0.5" scale="0.1 0.1 0.1"></a-box>
+        <a-cylinder holdable dynamic-body constraint="collideConnected: false; target: #anchor" color="red" height="0.5" radius="0.1" position="0 1.5 -0.5"></a-cylinder>
+        
+        <a-light type="ambient" color="#ccc"></a-light>
+      </a-scene>
+      
+      <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
+    </body>
+  </html>   
