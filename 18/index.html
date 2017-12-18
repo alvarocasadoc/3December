@@ -1,0 +1,49 @@
+<!-- Project 18: D3js 101. -->
+
+<html>
+        <head>
+          <meta charset="UTF-8">
+          <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+          <script src="https://d3js.org/d3.v3.min.js"></script>
+
+          <script src="./index.js"></script>
+          <link rel="stylesheet" href="../assets/css/style.css"/>
+        </head>
+        <body style='background: #fff; margin : 0px; overflow: hidden;'>
+          <div class="map-info">
+              <h1>Aparcaments Mobilitat Reduïda</h1>
+              <p>PC: Utilitza W, A, S, D per a desplaçar la càmera i el ratolí per girar-la. Prem el botó del cantó superior dret per a canviar el punt de vista.</p>
+              <p>A València n'hi ha un total de <span id="plazas"></span> aparcaments per a persones amb mobilitat reduïda. Amb aquest mapa pots fer-te una idea d'on es troben.</p>
+              <p>Cada columna indica la quantitat de aparcaments adaptats a un punt.</p>
+          </div>
+          <a-scene>
+            <a-assets>
+              <img id="map" src="../assets/img/map.png">
+            </a-assets>
+            <a-camera class="active" active="true" position="0 10 0" rotation="-90 0 0"></a-camera>
+            <a-camera active="false" position="10 5 10" rotation="-30 45 0"></a-camera>
+            <a-plane src="#map" width="21.7" height="19" rotation="-90 0 0" position="-0.78 0 -1.84"></a-plane>
+          </a-scene>
+          <script>
+          function switchCamera() {
+              var cameras = document.querySelectorAll('a-camera');
+              for (var i = 0; i < cameras.length; i++) {
+                var camera = cameras[i];
+                if (camera.getAttribute('active') == "true") {
+                  camera.setAttribute('active', "false");
+                } else {
+                  camera.setAttribute('active', "true");
+                }
+              }
+          }
+          </script>
+          <p class="attribution" style="color: black; font-size: 0.75em;">
+            Mapa desenvolupat a partir de dades del 2015 del portal de 
+            <a href="http://gobiernoabierto.valencia.es/va/dataset/?id=aparcamiento-movilidad-reducida">
+                Govern Obert de l'Ajuntament de València
+            </a>
+          </p>
+          <a class="cam-button" onclick="switchCamera();">CAM</a>
+          <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
+        </body>
+      </html>   
