@@ -90,6 +90,10 @@ tr {
     z-index: 999;
 }
 
+.extra {
+    display: block;
+}
+
 .field-name {
     color: white;
     font-family: Bungee;
@@ -129,6 +133,10 @@ tr {
     position: fixed;
     top: 55px;
     z-index: 999;
+}
+
+.map-scene {
+    height: 100%;
 }
 
 .modal {
@@ -228,10 +236,18 @@ tr {
       width: 85%;
   }
 
+  .extra {
+      display: none;
+  }
+
   .map-info {
     max-width: 100%;
     padding: 2em;
     position: relative;
-    }
+  }
+
+  .map-scene {
+    height: 85%;
+  }
 }
 

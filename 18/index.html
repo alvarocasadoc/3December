@@ -12,11 +12,11 @@
         <body style='background: #fff; margin : 0px; overflow: hidden;'>
           <div class="map-info">
               <h1>Aparcaments Mobilitat Reduïda</h1>
-              <p>PC: Utilitza W, A, S, D per a desplaçar la càmera i el ratolí per girar-la. Prem el botó del cantó superior dret per a canviar el punt de vista.</p>
+              <p class="extra">PC: Utilitza W, A, S, D per a desplaçar la càmera i el ratolí per girar-la. Prem el botó del cantó superior dret per a canviar el punt de vista.</p>
               <p>A València n'hi ha un total de <span id="plazas"></span> aparcaments per a persones amb mobilitat reduïda. Amb aquest mapa pots fer-te una idea d'on es troben.</p>
-              <p>Cada columna indica la quantitat de aparcaments adaptats a un punt.</p>
+              <p class="extra">Cada columna indica la quantitat de aparcaments adaptats a un punt.</p>
           </div>
-          <a-scene>
+          <a-scene embedded class="map-scene">
             <a-assets>
               <img id="map" src="../assets/img/map.png">
             </a-assets>
