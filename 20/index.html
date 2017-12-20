@@ -1,0 +1,40 @@
+<!-- Project 20: Domino. -->
+
+<html>
+        <head>
+          <meta charset="UTF-8">    
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+          
+          <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+          <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+          <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script>
+          
+          <script src="../assets/js/behaviours/throwable.js"></script>
+          <link rel="stylesheet" href="../assets/css/style.css"/>
+        </head>
+        <body>
+          <a-scene embedded physics>
+
+
+            <a-camera mouse-cursor wasd-controls="enabled:false">
+                <a-cursor fuse="true" color="white"></a-cursor>        
+            </a-camera>
+
+            <a-box dynamic-body throwable="force: 5" color="#8ba6e9" position="0 0.51 -5.0" width="1" depth="0.1" height="2" shadow></a-box>
+            <a-box dynamic-body throwable="force: 5" color="#bed0f4" position="0 1.01 -5.5" width="2" depth="0.1" height="3" shadow></a-box>
+            <a-box dynamic-body throwable="force: 5" color="#8ba6e9" position="0 1.51 -6.0" width="3" depth="0.1" height="4" shadow></a-box>
+            <a-box dynamic-body throwable="force: 5" color="#bed0f4" position="0 2.01 -6.5" width="4" depth="0.1" height="5" shadow></a-box>
+            <a-box dynamic-body throwable="force: 5" color="#8ba6e9" position="0 2.51 -7.0" width="5" depth="0.1" height="6" shadow></a-box>
+            <a-box dynamic-body throwable="force: 5" color="#bed0f4" position="0 3.01 -7.5" width="6" depth="0.1" height="7" shadow></a-box>
+
+            <a-box static-body scale="100 0.1 100" material="color: #7e96c4" position="0 -0.5 0"shadow="receive: true;"></a-box>
+
+            <a-entity id="sky" 
+                geometry="primitive: sphere; radius: 5000"
+                material="shader: gradient; topColor: 247 228 224; bottomColor: 215 183 188"
+                scale="-1 1 1"></a-entity>
+            <script src="./index.js"></script>
+          </a-scene>
+          <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
+        </body>
+      </html>
