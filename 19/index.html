@@ -1,25 +1,35 @@
-<!-- Project 19: . -->
+<!-- Project 19: Environment 101 -->
 
 <html>
     <head>
       <meta charset="UTF-8">
       <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
-      <script src="https://unpkg.com/aframe-leap-hands/dist/aframe-leap-hands.min.js"></script>
       <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.js"></script>
-      <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script>      
-
-      <script src="../assets/js/behaviours/pushable.js"></script>
-      <script src="./index.js"></script>
+      <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script>     
+      
       <link rel="stylesheet" href="../assets/css/style.css"/>
     </head>
-    <body style='background: white; margin : 0px; overflow: hidden;'>
+    <body style='margin : 0px; overflow: hidden;'>
       <a-scene>
-        <a-entity camera="near: 0.01" look-controls position="0 1.5 0">
-            <a-entity id="left"  leap-hand="hand: left; enablePhysics: true"></a-entity>
-            <a-entity id="right" pushable leap-hand="hand: right; enablePhysics: true"></a-entity>
+        <a-assets>
+            <a-asset-item id="pyramid-obj" src="../assets/models/pyramid.obj"></a-asset-item>
+            <a-asset-item id="pyramid-mtl" src="../assets/models/pyramid.mtl"></a-asset-item>
+            <a-asset-item id="ufo-obj" src="../assets/models/ufo.obj"></a-asset-item>
+            <a-asset-item id="ufo-mtl" src="../assets/models/ufo.mtl"></a-asset-item>
+        </a-assets>
+
+        <a-entity obj-model="obj: #pyramid-obj; mtl: #pyramid-mtl" position="0 0.4 -5" scale="2 2 2" shadow></a-entity>
+        <a-entity light="type: spot; angle: 45; castShadow: true" rotation="-90 0 0"></a-entity>
+        
+        <a-entity>
+          <a-entity obj-model="obj: #ufo-obj; mtl: #ufo-mtl" shadow position="0 4 -6.5">
+            <a-animation attribute="rotation" from="0 0 -10" to="0 0 10" direction="alternate" repeat="indefinite" dur="1050" easing="ease-in-out-quad"></a-animation>
+          </a-entity>
+          <a-entity light="type: point; angle: 45; color: #40e0d0" position="0 3.7 -6.5" rotation="-90 0 0"></a-entity>          
         </a-entity>
-        <a-light type="ambient" color="#ccc"></a-light>
+        <a-entity environment="preset: egypt; seed: 288; lightPosition: 0 5 0; shadow: true"></a-entity>
       </a-scene>
+      <p class="attribution">Models by Google Poly</p>
       <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
     </body>
   </html>   
