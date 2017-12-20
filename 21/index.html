@@ -1,0 +1,38 @@
+<!-- Project 21: Custom animated model. -->
+
+<html>
+        <head>
+          <meta charset="UTF-8">    
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+          
+          <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+          <script src="https://cdn.rawgit.com/donmccurdy/aframe-extras/v3.13.1/dist/aframe-extras.js"></script>
+          <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+          <script src="https://rawgit.com/feiss/aframe-environment-component/master/dist/aframe-environment-component.min.js"></script> 
+
+          <link rel="stylesheet" href="../assets/css/style.css"/>
+        </head>
+        <body>
+          <a-scene embedded>
+            <a-assets>
+                <a-asset-item id="tree-obj" src="../assets/models/21/WeepingWillowTree.obj"></a-asset-item>
+                <a-asset-item id="tree-mtl" src="../assets/models/21/WeepingWillowTree.mtl"></a-asset-item>
+                <a-asset-item id="grass-obj" src="../assets/models/21/PUSHILIN_grass.obj"></a-asset-item>
+                <a-asset-item id="grass-mtl" src="../assets/models/21/PUSHILIN_grass.mtl"></a-asset-item>
+            </a-assets>
+
+            <a-entity json-model="src: url(../assets/models/21/owl.json);" position="0 0 -2" scale="0.2 0.2 0.2" animation-mixer="clip: CURIOUS; duration:3"></a-entity>
+            <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl" position="-3 0 -10"></a-entity>
+            <a-entity obj-model="obj: #grass-obj; mtl: #grass-mtl" position="-4 0 -8" rotation="0 120 0"></a-entity>
+            <a-entity obj-model="obj: #grass-obj; mtl: #grass-mtl" position="3 0 -13"></a-entity>
+
+            <a-entity id="sky" 
+                geometry="primitive: sphere; radius: 5000"
+                material="shader: gradient; topColor: 247 228 224; bottomColor: 215 183 188"
+                scale="-1 1 1"></a-entity>
+            
+          </a-scene>
+          <p class="attribution">Models by Google Poly</p>
+          <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
+        </body>
+      </html>
