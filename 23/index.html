@@ -1,0 +1,50 @@
+<!-- Project 23: A-Frame + LEAPJS. -->
+
+<html>
+    <head>
+      <meta charset="UTF-8">    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+      
+      <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+      <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+      <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v2.1.0/dist/aframe-physics-system.min.js"></script>
+      <script src="https://js.leapmotion.com/leap-0.6.4.min.js"></script>
+      <link rel="stylesheet" href="../assets/css/style.css"/>
+    </head>
+    <body>
+      <a-scene embedded>
+        <a-box shadow color="#ffa447" dynamic-body rotation="0 45 0" position="0 0 -10"></a-box>
+        <a-box shadow color="#ffa447" dynamic-body="mass: 5" position="5 0 -10"></a-box>
+        <a-box shadow color="#ffb972" dynamic-body rotation="0 60 0" rotation="0 45 0" position="-5 0 -6"></a-box>
+        <a-box shadow color="#ffa447" dynamic-body="mass: 3" position="3 0 -4"></a-box>
+
+        <a-box shadow color="#ffb972" dynamic-body="mass: 4" rotation="0 45 0" position="-3 0 -5"></a-box>
+        <a-box shadow color="#ffa447" dynamic-body="mass: 12" scale="2 2 2" position="4 0 -12"></a-box>
+        <a-box shadow color="#ffb972" dynamic-body="mass: 6" rotation="0 70 0" scale="2 2 2" position="-2 0 -4"></a-box>
+
+        <a-box shadow color="#ffa447" dynamic-body rotation="0 45 0" position="4 0 0"></a-box>
+        <a-box shadow color="#ffa447" dynamic-body="mass: 5" position="7 0 1"></a-box>
+        <a-box shadow color="#ffb972" dynamic-body rotation="0 60 0" rotation="0 45 0" position="-8 0 1"></a-box>
+        <a-box shadow color="#ffa447" dynamic-body="mass: 3" position="-3 0 2"></a-box>
+
+        <a-box shadow color="#ffb972" dynamic-body="mass: 4" rotation="0 45 0" position="-3 0 5"></a-box>
+        <a-box shadow color="#ffa447" dynamic-body="mass: 12" scale="2 2 2" position="4 0 12"></a-box>
+        <a-box shadow color="#ffb972" dynamic-body="mass: 6" rotation="0 70 0" scale="2 2 2" position="-2 0 4"></a-box>
+
+        <a-box shadow color="#ffa447" dynamic-body rotation="0 45 0" position="0 0 10"></a-box>
+        <a-box shadow color="#ffa447" dynamic-body="mass: 5" position="5 0 10"></a-box>
+        <a-box shadow color="#ffb972" dynamic-body rotation="0 60 0" rotation="0 45 0" position="-5 0 6"></a-box>
+        <a-box shadow color="#ffa447" dynamic-body="mass: 3" position="3 0 4"></a-box>
+
+        <a-box shadow static-body position="0 -1.2 0" color="#00006e" depth="50" width="50"></a-box>
+
+        <a-entity id="sky" 
+            geometry="primitive: sphere; radius: 5000"
+            material="shader: gradient; topColor: 0 0 230; bottomColor: 0 0 110"
+            scale="-1 1 1"></a-entity>
+      </a-scene>
+      <script src="./index.js"></script>
+      <p class="attribution">Use your power to raise the boxes. Just use your hand!</p>
+      <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
+    </body>
+  </html>

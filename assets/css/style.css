@@ -51,6 +51,7 @@ li img {
     border-radius: 5px;
     -webkit-border-radius: 5px;
     width: 25vw;
+    height: 25vw;
 }
 
 tr {
