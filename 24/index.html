@@ -1,0 +1,32 @@
+<!-- Project 24: Leap sword. -->
+
+<html>
+    <head>
+      <meta charset="UTF-8">    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+      
+      <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+      <script src="https://unpkg.com/aframe-gradient-sky@1.0.4/dist/gradientsky.min.js"></script>
+      <script src="https://js.leapmotion.com/leap-0.6.4.min.js"></script>
+      <link rel="stylesheet" href="../assets/css/style.css"/>
+    </head>
+    <body>
+      <a-scene embedded>
+        <a-assets>
+            <a-asset-item id="sword" src="../assets/models/model.obj"></a-asset-item>
+            <a-asset-item id="sword-mat" src="../assets/models/materials.mtl"></a-asset-item>
+        </a-assets>
+        <a-entity id="anchor" position="0 1 -2" obj-model="obj: #sword; mtl: #sword-mat" scale="2 2 2">
+            <a-animation id="anim" attribute="rotation" to="0 360 0" dur="1500" begin="rotate"></a-animation>
+        </a-entity>
+
+        <a-entity id="sky" 
+            geometry="primitive: sphere; radius: 5000"
+            material="shader: gradient; topColor: 254 215 147; bottomColor: 254 206 122"
+            scale="-1 1 1"></a-entity>
+      </a-scene>
+      <script src="./index.js"></script>
+      <p class="attribution">Draw a circle to rotate the sword. Model by <a href="https://poly.google.com/user/8qz4WdIJ9VC">Brandon Evans</a></p>
+      <a class="back-button" aria-label="Back to index" href="../index.html">&lt;</a>
+    </body>
+  </html>
